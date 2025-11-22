@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -55,7 +55,7 @@ const RouteMap = ({ routes }: RouteMapProps) => {
         />
         
         {routes.map((route, index) => (
-          <div key={index}>
+          <React.Fragment key={index}>
             {/* From location (Port) */}
             <Marker position={route.fromCoords} icon={portIcon}>
               <Popup>
@@ -86,7 +86,7 @@ const RouteMap = ({ routes }: RouteMapProps) => {
               opacity={0.7}
               dashArray={route.status === 'Active' ? undefined : '10, 10'}
             />
-          </div>
+          </React.Fragment>
         ))}
       </MapContainer>
     </div>
