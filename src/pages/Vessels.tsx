@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
+import heroShip from "@/assets/hero-ship.jpg";
 
 const vessels = [
   { name: "MV Steel Carrier", type: "Bulk Carrier", cargo: "Iron Ore", status: "In Transit", eta: "2 days" },
@@ -13,15 +14,28 @@ const Vessels = () => {
   return (
     <div className="min-h-screen bg-gradient-steel">
       <Header />
-      <main className="container px-6 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+      
+      {/* Hero Section */}
+      <div className="relative h-[300px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroShip} 
+            alt="Cargo vessels" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background"></div>
+        </div>
+        <div className="relative container px-6 h-full flex flex-col justify-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3 drop-shadow-lg">
             Vessel Information
           </h1>
-          <p className="text-muted-foreground">
-            Real-time tracking of vessels carrying steel and raw materials
+          <p className="text-foreground/90 drop-shadow">
+            Active vessels transporting steel raw materials
           </p>
         </div>
+      </div>
+
+      <main className="container px-6 py-12">
 
         <div className="grid gap-6">
           {vessels.map((vessel) => (

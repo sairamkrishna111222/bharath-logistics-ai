@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import steelPlantImage from "@/assets/steel-plant-aerial.jpg";
 import bhilaiLogo from "@/assets/bhilai-logo.png";
 import rourkelaLogo from "@/assets/rourkela-logo.png";
 import durgapurLogo from "@/assets/durgapur-logo.png";
@@ -49,15 +50,28 @@ const SteelPlants = () => {
   return (
     <div className="min-h-screen bg-gradient-steel">
       <Header />
-      <main className="container px-6 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            Steel Plants
+      
+      {/* Hero Section */}
+      <div className="relative h-[300px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={steelPlantImage} 
+            alt="Steel plant" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background"></div>
+        </div>
+        <div className="relative container px-6 h-full flex flex-col justify-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3 drop-shadow-lg">
+            Major Steel Plants
           </h1>
-          <p className="text-muted-foreground">
-            India's 5 major integrated steel plants
+          <p className="text-foreground/90 drop-shadow">
+            India's 5 major integrated steel manufacturing facilities
           </p>
         </div>
+      </div>
+
+      <main className="container px-6 py-12">
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {plants.map((plant) => (

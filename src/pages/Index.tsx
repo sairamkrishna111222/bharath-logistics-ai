@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import DashboardCard from "@/components/DashboardCard";
 import { Factory, Anchor, Ship, Route, Activity } from "lucide-react";
+import heroShip from "@/assets/hero-ship.jpg";
 
 const Index = () => {
   const sections = [
@@ -39,16 +40,28 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-steel">
       <Header />
-      <main className="container px-6 py-12">
-        <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Maritime Logistics Dashboard
+      
+      {/* Hero Section with Background Image */}
+      <div className="relative h-[400px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroShip} 
+            alt="Cargo ships" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
+        </div>
+        <div className="relative container px-6 h-full flex flex-col justify-center items-center text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 drop-shadow-lg">
+            Steel Logistics
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Integrated steel production and maritime logistics management system
+          <p className="text-lg md:text-xl text-foreground/90 max-w-2xl drop-shadow">
+            Comprehensive logistics management for India's steel industry
           </p>
         </div>
+      </div>
 
+      <main className="container px-6 py-12">
         <div className="grid gap-6 max-w-4xl mx-auto">
           {sections.map((section) => (
             <DashboardCard key={section.title} {...section} />
