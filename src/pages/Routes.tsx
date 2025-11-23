@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import RouteMap from "@/components/RouteMap";
 
@@ -52,12 +51,9 @@ const routes = [
 
 const Routes = () => {
   return (
-    <div className="min-h-screen bg-gradient-steel">
-      <Header />
-      <main className="container px-6 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            Route Tracking System
+    <div className="p-6 space-y-6 bg-background">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold">Route Tracking System</h1>
           </h1>
           <p className="text-muted-foreground">
             Real-time shipment tracking with optimized routes from ports to steel plants
@@ -100,9 +96,8 @@ const Routes = () => {
                 </div>
               </div>
             </Card>
-          ))}
-        </div>
-      </main>
+        ))}
+      </div>
     </div>
   );
 };

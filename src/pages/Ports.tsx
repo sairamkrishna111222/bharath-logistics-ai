@@ -1,51 +1,108 @@
-import Header from "@/components/Header";
-import { Card } from "@/components/ui/card";
-import portImage from "@/assets/port-operations.jpg";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { Anchor, TrendingUp } from "lucide-react";
 
 const ports = [
-  { name: "Mumbai Port", location: "Maharashtra", vessels: 12, status: "Operational" },
-  { name: "Chennai Port", location: "Tamil Nadu", vessels: 8, status: "Operational" },
-  { name: "Visakhapatnam Port", location: "Andhra Pradesh", vessels: 15, status: "Operational" },
-  { name: "Paradip Port", location: "Odisha", vessels: 10, status: "Operational" },
-  { name: "Kolkata Port", location: "West Bengal", vessels: 6, status: "Operational" },
+  { name: "Mumbai Port", location: "Maharashtra", vessels: 12, status: "Operational", capacity: 85 },
+  { name: "Chennai Port", location: "Tamil Nadu", vessels: 8, status: "Operational", capacity: 70 },
+  { name: "Visakhapatnam Port", location: "Andhra Pradesh", vessels: 15, status: "Operational", capacity: 92 },
+  { name: "Paradip Port", location: "Odisha", vessels: 10, status: "Operational", capacity: 78 },
+  { name: "Kolkata Port", location: "West Bengal", vessels: 6, status: "Operational", capacity: 65 },
+];
+
+const cargoData = [
+  { port: "Mumbai", cargo: 450 },
+  { port: "Chennai", cargo: 320 },
+  { port: "Vizag", cargo: 580 },
+  { port: "Paradip", cargo: 410 },
+  { port: "Kolkata", cargo: 290 },
+];
+
+const cargoTypes = [
+  { name: "Iron Ore", value: 45, fill: "hsl(var(--primary))" },
+  { name: "Coal", value: 30, fill: "hsl(var(--accent))" },
+  { name: "Limestone", value: 15, fill: "hsl(var(--secondary))" },
+  { name: "Others", value: 10, fill: "hsl(var(--muted))" },
 ];
 
 const Ports = () => {
   return (
-    <div className="min-h-screen bg-gradient-steel">
-      <Header />
-      
-      {/* Hero Section */}
-      <div className="relative h-[300px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={portImage} 
-            alt="Port operations" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background"></div>
-        </div>
-        <div className="relative container px-6 h-full flex flex-col justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3 drop-shadow-lg">
-            Port Information
-          </h1>
-          <p className="text-foreground/90 drop-shadow">
-            Major Indian ports handling steel raw materials
-          </p>
-        </div>
+    <div className="p-6 space-y-6 bg-background">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold">Port Information</h1>
+        <p className="text-muted-foreground">
+          Major Indian ports handling steel raw materials
+        </p>
       </div>
 
-      <main className="container px-6 py-12">
+      {/* Charts Section */}
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Cargo Handling by Port (MT/Month)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={cargoData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="port" stroke="hsl(var(--muted-foreground))" />
+                <YAxis stroke="hsl(var(--muted-foreground))" />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: "hsl(var(--card))", 
+                    border: "1px solid hsl(var(--border))",
+                    borderRadius: "6px"
+                  }}
+                />
+                <Bar dataKey="cargo" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
 
-        <div className="grid gap-6">
-          {ports.map((port) => (
-            <Card key={port.name} className="p-6 bg-card border-border shadow-card hover:shadow-elevated transition-all duration-300">
+        <Card>
+          <CardHeader>
+            <CardTitle>Cargo Type Distribution</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={cargoTypes}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  outerRadius={100}
+                  dataKey="value"
+                >
+                  {cargoTypes.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Ports List */}
+      <div className="grid gap-4">
+        {ports.map((port) => (
+          <Card key={port.name} className="hover:shadow-elevated transition-all duration-300">
+            <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {port.name}
-                  </h3>
-                  <p className="text-muted-foreground">{port.location}</p>
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Anchor className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-1">
+                      {port.name}
+                    </h3>
+                    <p className="text-muted-foreground">{port.location}</p>
+                  </div>
                 </div>
                 <div className="flex gap-6">
                   <div className="text-center">
@@ -53,16 +110,20 @@ const Ports = () => {
                     <p className="text-sm text-muted-foreground">Vessels</p>
                   </div>
                   <div className="text-center">
-                    <div className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium">
+                    <p className="text-2xl font-bold text-accent">{port.capacity}%</p>
+                    <p className="text-sm text-muted-foreground">Capacity</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="inline-block px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-sm font-medium">
                       {port.status}
                     </div>
                   </div>
                 </div>
               </div>
-            </Card>
-          ))}
-        </div>
-      </main>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };
