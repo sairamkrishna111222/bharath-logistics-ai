@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import steelPlantImage from "@/assets/steel-plant-aerial.jpg";
@@ -48,33 +47,16 @@ const plants = [
 
 const SteelPlants = () => {
   return (
-    <div className="min-h-screen bg-gradient-steel">
-      <Header />
-      
-      {/* Hero Section */}
-      <div className="relative h-[300px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={steelPlantImage} 
-            alt="Steel plant" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background"></div>
-        </div>
-        <div className="relative container px-6 h-full flex flex-col justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3 drop-shadow-lg">
-            Major Steel Plants
-          </h1>
-          <p className="text-foreground/90 drop-shadow">
-            India's 5 major integrated steel manufacturing facilities
-          </p>
-        </div>
+    <div className="p-6 space-y-6 bg-background">
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold">Steel Plants</h1>
+        <p className="text-muted-foreground">
+          India's 5 major integrated steel manufacturing facilities
+        </p>
       </div>
 
-      <main className="container px-6 py-12">
-
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {plants.map((plant) => (
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {plants.map((plant) => (
             <Link key={plant.id} to={`/plant/${plant.id}`}>
               <Card className="p-6 hover:shadow-elevated transition-all duration-300 border-border bg-card group cursor-pointer h-full">
                 <div className="flex flex-col items-center text-center gap-4">
@@ -100,8 +82,7 @@ const SteelPlants = () => {
               </Card>
             </Link>
           ))}
-        </div>
-      </main>
+      </div>
     </div>
   );
 };
