@@ -54,13 +54,12 @@ const Routes = () => {
     <div className="p-6 space-y-6 bg-background">
       <div className="space-y-2">
         <h1 className="text-3xl font-bold">Route Tracking System</h1>
-          </h1>
-          <p className="text-muted-foreground">
-            Real-time shipment tracking with optimized routes from ports to steel plants
-          </p>
-        </div>
+        <p className="text-muted-foreground">
+          Real-time shipment tracking with optimized routes from ports to steel plants
+        </p>
+      </div>
 
-        {/* Interactive Map */}
+      {/* Interactive Map */}
         <div className="mb-8">
           <RouteMap routes={routes} />
         </div>
@@ -96,8 +95,8 @@ const Routes = () => {
                 </div>
               </div>
             </Card>
-        ))}
-      </div>
+          ))}
+        </div>
     </div>
   );
 };

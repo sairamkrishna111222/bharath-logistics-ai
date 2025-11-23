@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import TopBar from "@/components/TopBar";
+import GetStarted from "./pages/GetStarted";
 import Index from "./pages/Index";
 import SteelPlants from "./pages/SteelPlants";
 import PlantDetail from "./pages/PlantDetail";
@@ -23,26 +24,32 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <SidebarProvider>
-          <div className="flex min-h-screen w-full">
-            <AppSidebar />
-            <div className="flex-1 flex flex-col">
-              <TopBar />
-              <main className="flex-1 overflow-auto">
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/steel-plants" element={<SteelPlants />} />
-                  <Route path="/plant/:plantId" element={<PlantDetail />} />
-                  <Route path="/ports" element={<Ports />} />
-                  <Route path="/vessels" element={<Vessels />} />
-                  <Route path="/routes" element={<RoutesPage />} />
-                  <Route path="/status" element={<Status />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </main>
-            </div>
-          </div>
-        </SidebarProvider>
+        <Routes>
+          <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/*" element={
+            <SidebarProvider>
+              <div className="flex min-h-screen w-full">
+                <AppSidebar />
+                <div className="flex-1 flex flex-col">
+                  <TopBar />
+                  <main className="flex-1 overflow-auto">
+                    <Routes>
+                <Route path="/get-started" element={<GetStarted />} />
+                      <Route path="/" element={<Index />} />
+                      <Route path="/steel-plants" element={<SteelPlants />} />
+                      <Route path="/plant/:plantId" element={<PlantDetail />} />
+                      <Route path="/ports" element={<Ports />} />
+                      <Route path="/vessels" element={<Vessels />} />
+                      <Route path="/routes" element={<RoutesPage />} />
+                      <Route path="/status" element={<Status />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </main>
+                </div>
+              </div>
+            </SidebarProvider>
+          } />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
