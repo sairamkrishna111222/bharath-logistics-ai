@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import logo from "@/assets/bharath-sail-logo.png";
+import steelLogisticsBg from "@/assets/steel-logistics-bg.jpg";
 
 const GetStarted = () => {
   const navigate = useNavigate();
@@ -40,7 +41,17 @@ const GetStarted = () => {
 
       {/* Hero Section */}
       <section className="relative container mx-auto px-6 pt-20 pb-32">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+        {/* Background Image */}
+        <div className="absolute inset-0 -mx-6 overflow-hidden">
+          <img 
+            src={steelLogisticsBg} 
+            alt="Steel Logistics Background" 
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-steel-primary/10 border border-steel-primary/20 text-steel-primary text-sm">
             India's Largest Steel Producer
