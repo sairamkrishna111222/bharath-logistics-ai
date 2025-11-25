@@ -1,243 +1,95 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Ship, TrendingUp, Gauge, MapPin, Package2, ArrowRight } from "lucide-react";
 import logo from "@/assets/bharath-sail-logo.png";
-import industrialBg from "@/assets/industrial-background.png";
-import heroShip from "@/assets/hero-ship.jpg";
-import portOps from "@/assets/port-operations.jpg";
+import logisticsScene from "@/assets/logistics-scene.png";
 
 const GetStarted = () => {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      icon: Ship,
-      title: "Real-Time Vessel Tracking",
-      description: "Monitor your fleet's movement across Indian ports with live GPS tracking and ETA predictions"
-    },
-    {
-      icon: MapPin,
-      title: "Smart Route Optimization",
-      description: "AI-powered route planning that reduces transit time and fuel consumption by up to 30%"
-    },
-    {
-      icon: Package2,
-      title: "Automated Cargo Management",
-      description: "Seamless coordination between steel plants and ports with automated scheduling and load optimization"
-    },
-    {
-      icon: Gauge,
-      title: "Performance Analytics",
-      description: "Real-time dashboards and insights to track efficiency, delays, and optimize operations"
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background with overlay */}
-      <div 
-        className="fixed inset-0 z-0 opacity-50"
-        style={{
-          backgroundImage: `url(${industrialBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/85 to-background/90" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Header */}
-        <header className="border-b border-border/50 bg-background/80 backdrop-blur-xl sticky top-0 z-50">
-          <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-3 animate-fade-in">
-              <img src={logo} alt="Bharath Sail Logo" className="h-12 w-12 object-contain" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-steel-primary to-steel-accent bg-clip-text text-transparent">
-                Bharath Sail
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Button variant="ghost" className="hover-scale">
-                Features
-              </Button>
-              <Button variant="ghost" className="hover-scale">
-                Solutions
-              </Button>
-              <Button variant="ghost" className="hover-scale">
-                Contact
-              </Button>
-              <Button 
-                className="relative overflow-hidden bg-gradient-to-r from-steel-primary to-steel-accent text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-glow border-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-steel-accent before:to-steel-primary before:opacity-0 hover:before:opacity-100 before:transition-opacity"
-                onClick={() => navigate("/")}
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Dashboard
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Button>
-            </div>
+    <div className="min-h-screen bg-background relative">
+      {/* Header */}
+      <header className="border-b border-border/30 bg-background">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Bharath Sail Logo" className="h-10 w-10 object-contain" />
+            <span className="text-2xl font-bold text-steel-primary">
+              Bharath Sail
+            </span>
           </div>
-        </header>
-
-        {/* Hero Section */}
-        <section className="relative container mx-auto px-6 py-32 md:py-40">
-          {/* Hero Background Image */}
-          <div className="absolute inset-0 -mx-6 overflow-hidden rounded-3xl">
-            <img 
-              src={heroShip} 
-              alt="Steel Logistics" 
-              className="w-full h-full object-cover opacity-20"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+          <div className="flex items-center gap-8">
+            <button className="text-foreground/80 hover:text-foreground transition-colors">
+              Features
+            </button>
+            <button className="text-foreground/80 hover:text-foreground transition-colors">
+              About
+            </button>
+            <button className="text-foreground/80 hover:text-foreground transition-colors">
+              Contact
+            </button>
+            <Button 
+              className="bg-steel-primary hover:bg-steel-primary/90 text-white rounded-lg px-6 shadow-sm"
+              onClick={() => navigate("/")}
+            >
+              Dashboard
+            </Button>
           </div>
+        </div>
+      </header>
 
-          <div className="max-w-5xl mx-auto relative z-10">
-            <div className="text-center space-y-8 animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-steel-primary/10 border border-steel-primary/20 text-steel-primary text-sm font-medium backdrop-blur-sm">
-                <div className="h-2 w-2 rounded-full bg-steel-primary animate-pulse" />
-                Next-Generation Logistics Automation
-              </div>
-              
-              <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight drop-shadow-2xl">
-                Transform Your
-                <br />
-                <span className="bg-gradient-to-r from-steel-primary via-steel-accent to-steel-primary bg-clip-text text-transparent animate-gradient">
-                  Steel Logistics
-                </span>
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-                Intelligent automation platform connecting 5 integrated steel plants with seamless port-to-plant logistics coordination
-              </p>
-              
-              <div className="flex justify-center pt-8">
-                <Button 
-                  size="lg" 
-                  className="relative overflow-hidden bg-gradient-to-r from-steel-primary via-steel-accent to-steel-primary text-white text-lg px-12 py-8 group shadow-2xl hover:shadow-glow transition-all duration-300 hover:scale-105 border-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-steel-accent before:via-steel-primary before:to-steel-accent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500"
-                  onClick={() => navigate("/")}
-                >
-                  <span className="relative z-10 flex items-center gap-3 font-semibold">
-                    Access Platform
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </span>
-                </Button>
-              </div>
-            </div>
+      {/* Hero Section */}
+      <section className="relative container mx-auto px-6 pt-20 pb-32">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-steel-primary/10 border border-steel-primary/20 text-steel-primary text-sm">
+            India's Largest Steel Producer
           </div>
-        </section>
+          
+          {/* Main Heading */}
+          <h1 className="text-6xl md:text-7xl font-bold leading-tight">
+            Meet, Bharath Sail
+            <br />
+            <span className="text-steel-primary">
+              Integrated Steel Logistics
+            </span>
+          </h1>
+          
+          {/* Description */}
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Comprehensive steel production and logistics management across 5 integrated steel plants, delivering excellence in quality and efficiency
+          </p>
+          
+          {/* CTA Buttons */}
+          <div className="flex justify-center gap-4 pt-6">
+            <Button 
+              size="lg" 
+              className="bg-steel-primary hover:bg-steel-primary/90 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
+              onClick={() => navigate("/")}
+            >
+              Get Started
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-2 border-border hover:bg-accent px-8 py-6 text-lg rounded-xl"
+            >
+              Learn More
+            </Button>
+          </div>
+        </div>
+      </section>
 
-        {/* Features Grid */}
-        <section className="container mx-auto px-6 py-20">
-          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="group relative p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-steel-primary/50 transition-all duration-500 hover:shadow-glow animate-fade-in hover-scale"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-steel-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative">
-                  <div className="mb-6 p-4 rounded-xl bg-gradient-to-br from-steel-primary/20 to-steel-accent/20 w-fit group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="h-7 w-7 text-steel-primary" />
-                  </div>
-                  <h3 className="text-2xl font-semibold mb-3 group-hover:text-steel-primary transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Visual Showcase */}
-        <section className="container mx-auto px-6 py-20">
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="relative group overflow-hidden rounded-2xl animate-fade-in">
-              <img 
-                src={heroShip} 
-                alt="Vessel Operations" 
-                className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Maritime Excellence</h3>
-                <p className="text-white/80">24/7 vessel monitoring and coordination</p>
-              </div>
-            </div>
-            
-            <div className="relative group overflow-hidden rounded-2xl animate-fade-in" style={{ animationDelay: '200ms' }}>
-              <img 
-                src={portOps} 
-                alt="Port Operations" 
-                className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Port Integration</h3>
-                <p className="text-white/80">Seamless port-to-plant connectivity</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="container mx-auto px-6 py-20">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center p-10 rounded-2xl bg-gradient-to-br from-card/80 to-steel-primary/5 backdrop-blur-sm border border-border animate-fade-in hover-scale">
-                <div className="text-5xl font-bold bg-gradient-to-r from-steel-primary to-steel-accent bg-clip-text text-transparent mb-3">
-                  99.8%
-                </div>
-                <div className="text-muted-foreground text-lg">System Uptime</div>
-              </div>
-              
-              <div className="text-center p-10 rounded-2xl bg-gradient-to-br from-card/80 to-steel-accent/5 backdrop-blur-sm border border-border animate-fade-in hover-scale" style={{ animationDelay: '100ms' }}>
-                <div className="text-5xl font-bold bg-gradient-to-r from-steel-accent to-steel-primary bg-clip-text text-transparent mb-3">
-                  30%
-                </div>
-                <div className="text-muted-foreground text-lg">Cost Reduction</div>
-              </div>
-              
-              <div className="text-center p-10 rounded-2xl bg-gradient-to-br from-card/80 to-steel-primary/5 backdrop-blur-sm border border-border animate-fade-in hover-scale" style={{ animationDelay: '200ms' }}>
-                <div className="text-5xl font-bold bg-gradient-to-r from-steel-primary to-steel-accent bg-clip-text text-transparent mb-3">
-                  24/7
-                </div>
-                <div className="text-muted-foreground text-lg">Live Monitoring</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="container mx-auto px-6 py-32 mb-20">
-          <div className="max-w-4xl mx-auto text-center relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-steel-primary/20 to-steel-accent/20 blur-3xl -z-10" />
-            <div className="p-16 rounded-3xl bg-gradient-to-r from-steel-primary to-steel-accent shadow-glow backdrop-blur-sm animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Revolutionize Your Operations?
-              </h2>
-              <p className="text-white/90 text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                Join the future of steel logistics with intelligent automation and real-time insights
-              </p>
-              <Button 
-                size="lg" 
-                className="relative overflow-hidden bg-white text-steel-primary hover:scale-105 transition-all duration-300 text-xl px-12 py-8 group shadow-2xl hover:shadow-[0_0_40px_rgba(255,255,255,0.5)] border-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/90 before:to-white before:opacity-0 hover:before:opacity-100 before:transition-opacity"
-                onClick={() => navigate("/")}
-              >
-                <span className="relative z-10 flex items-center gap-3 font-bold">
-                  Get Started Now
-                  <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
-                </span>
-              </Button>
-            </div>
-          </div>
-        </section>
-      </div>
+      {/* Background Logistics Image Section */}
+      <section className="relative w-full h-[500px] mt-20">
+        <div className="absolute inset-0">
+          <img 
+            src={logisticsScene} 
+            alt="Logistics Operations" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        </div>
+      </section>
     </div>
   );
 };
