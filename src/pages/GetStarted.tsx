@@ -36,7 +36,7 @@ const GetStarted = () => {
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background with overlay */}
       <div 
-        className="fixed inset-0 z-0 opacity-30"
+        className="fixed inset-0 z-0 opacity-50"
         style={{
           backgroundImage: `url(${industrialBg})`,
           backgroundSize: 'cover',
@@ -44,7 +44,7 @@ const GetStarted = () => {
           backgroundAttachment: 'fixed'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/85 to-background/90" />
       </div>
 
       {/* Content */}
@@ -69,26 +69,38 @@ const GetStarted = () => {
                 Contact
               </Button>
               <Button 
-                className="bg-gradient-to-r from-steel-primary to-steel-accent hover:opacity-90 transition-all hover-scale"
+                className="relative overflow-hidden bg-gradient-to-r from-steel-primary to-steel-accent text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-glow border-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-steel-accent before:to-steel-primary before:opacity-0 hover:before:opacity-100 before:transition-opacity"
                 onClick={() => navigate("/")}
               >
-                Dashboard
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Dashboard
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </Button>
             </div>
           </div>
         </header>
 
         {/* Hero Section */}
-        <section className="container mx-auto px-6 py-32 md:py-40">
-          <div className="max-w-5xl mx-auto">
+        <section className="relative container mx-auto px-6 py-32 md:py-40">
+          {/* Hero Background Image */}
+          <div className="absolute inset-0 -mx-6 overflow-hidden rounded-3xl">
+            <img 
+              src={heroShip} 
+              alt="Steel Logistics" 
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+          </div>
+
+          <div className="max-w-5xl mx-auto relative z-10">
             <div className="text-center space-y-8 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-steel-primary/10 border border-steel-primary/20 text-steel-primary text-sm font-medium backdrop-blur-sm">
                 <div className="h-2 w-2 rounded-full bg-steel-primary animate-pulse" />
                 Next-Generation Logistics Automation
               </div>
               
-              <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight">
+              <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight drop-shadow-2xl">
                 Transform Your
                 <br />
                 <span className="bg-gradient-to-r from-steel-primary via-steel-accent to-steel-primary bg-clip-text text-transparent animate-gradient">
@@ -96,25 +108,20 @@ const GetStarted = () => {
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
                 Intelligent automation platform connecting 5 integrated steel plants with seamless port-to-plant logistics coordination
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+              <div className="flex justify-center pt-8">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-steel-primary to-steel-accent hover:opacity-90 transition-all text-lg px-10 py-7 group hover-scale shadow-glow"
+                  className="relative overflow-hidden bg-gradient-to-r from-steel-primary via-steel-accent to-steel-primary text-white text-lg px-12 py-8 group shadow-2xl hover:shadow-glow transition-all duration-300 hover:scale-105 border-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-steel-accent before:via-steel-primary before:to-steel-accent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500"
                   onClick={() => navigate("/")}
                 >
-                  Access Platform
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="text-lg px-10 py-7 border-steel-primary/30 hover:bg-steel-primary/10 backdrop-blur-sm hover-scale"
-                >
-                  Watch Demo
+                  <span className="relative z-10 flex items-center gap-3 font-semibold">
+                    Access Platform
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
                 </Button>
               </div>
             </div>
@@ -219,11 +226,13 @@ const GetStarted = () => {
               </p>
               <Button 
                 size="lg" 
-                className="bg-white text-steel-primary hover:bg-white/90 transition-all text-xl px-12 py-8 group hover-scale shadow-xl"
+                className="relative overflow-hidden bg-white text-steel-primary hover:scale-105 transition-all duration-300 text-xl px-12 py-8 group shadow-2xl hover:shadow-[0_0_40px_rgba(255,255,255,0.5)] border-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/90 before:to-white before:opacity-0 hover:before:opacity-100 before:transition-opacity"
                 onClick={() => navigate("/")}
               >
-                Get Started Now
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                <span className="relative z-10 flex items-center gap-3 font-bold">
+                  Get Started Now
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
+                </span>
               </Button>
             </div>
           </div>
