@@ -3,19 +3,15 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Anchor, TrendingUp } from "lucide-react";
 
 const ports = [
-  { name: "Mumbai Port", location: "Maharashtra", vessels: 12, status: "Operational", capacity: 85 },
-  { name: "Chennai Port", location: "Tamil Nadu", vessels: 8, status: "Operational", capacity: 70 },
   { name: "Visakhapatnam Port", location: "Andhra Pradesh", vessels: 15, status: "Operational", capacity: 92 },
   { name: "Paradip Port", location: "Odisha", vessels: 10, status: "Operational", capacity: 78 },
-  { name: "Kolkata Port", location: "West Bengal", vessels: 6, status: "Operational", capacity: 65 },
+  { name: "Haldia Port", location: "West Bengal", vessels: 7, status: "Operational", capacity: 72 },
 ];
 
 const cargoData = [
-  { port: "Mumbai", cargo: 450 },
-  { port: "Chennai", cargo: 320 },
   { port: "Vizag", cargo: 580 },
   { port: "Paradip", cargo: 410 },
-  { port: "Kolkata", cargo: 290 },
+  { port: "Haldia", cargo: 350 },
 ];
 
 const cargoTypes = [
