@@ -3,48 +3,30 @@ import RouteMap from "@/components/RouteMap";
 
 const routes = [
   { 
-    from: "Paradip Port", 
-    to: "Visakhapatnam Steel Plant", 
-    fromCoords: [20.2653, 86.6936] as [number, number],
-    toCoords: [17.6868, 83.2185] as [number, number],
-    distance: "450 km", 
-    duration: "18 hours", 
-    status: "Active" 
-  },
-  { 
-    from: "Mumbai Port", 
-    to: "Bhilai Steel Plant", 
-    fromCoords: [18.9388, 72.8354] as [number, number],
-    toCoords: [21.2094, 81.4337] as [number, number],
-    distance: "1200 km", 
-    duration: "3 days", 
-    status: "Active" 
-  },
-  { 
-    from: "Chennai Port", 
-    to: "Rourkela Steel Plant", 
-    fromCoords: [13.0827, 80.2707] as [number, number],
-    toCoords: [22.2604, 84.8536] as [number, number],
-    distance: "950 km", 
-    duration: "2.5 days", 
-    status: "Active" 
-  },
-  { 
-    from: "Kolkata Port", 
-    to: "Durgapur Steel Plant", 
-    fromCoords: [22.5726, 88.3639] as [number, number],
-    toCoords: [23.5204, 87.3119] as [number, number],
-    distance: "280 km", 
-    duration: "12 hours", 
-    status: "Active" 
-  },
-  { 
     from: "Visakhapatnam Port", 
-    to: "Bokaro Steel Plant", 
+    to: "Visakhapatnam Steel Plant", 
     fromCoords: [17.6868, 83.2185] as [number, number],
-    toCoords: [23.6693, 86.1511] as [number, number],
-    distance: "850 km", 
-    duration: "2 days", 
+    toCoords: [17.6868, 83.2185] as [number, number],
+    distance: "25 km", 
+    duration: "1 hour", 
+    status: "Active" 
+  },
+  { 
+    from: "Paradip Port", 
+    to: "Rourkela Steel Plant", 
+    fromCoords: [20.2653, 86.6936] as [number, number],
+    toCoords: [22.2604, 84.8536] as [number, number],
+    distance: "380 km", 
+    duration: "16 hours", 
+    status: "Active" 
+  },
+  { 
+    from: "Haldia Port", 
+    to: "Durgapur Steel Plant", 
+    fromCoords: [22.0333, 88.0667] as [number, number],
+    toCoords: [23.5204, 87.3119] as [number, number],
+    distance: "220 km", 
+    duration: "10 hours", 
     status: "Active" 
   },
 ];
